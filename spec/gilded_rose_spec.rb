@@ -59,6 +59,12 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 4
     end
+    it 'conjured items degrade twice as fast in quality as normal items' do
+      items = [Item.new("Conjured Mana Cake", 1, 40)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 38
+
+    end
 
   end
 
