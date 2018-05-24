@@ -30,13 +30,19 @@ describe GildedRose do
       expect(items[0].quality).to eq 50
     end
 
+    it 'quality Backstage passes increases by 2 when between 10 and 5 days' do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 9, 10)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 12
+    end
+
     it 'Sulfuras never decreases in quality' do
       items = [Item.new("Sulfuras, Hand of Ragnaros", 1, 40)]
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 40
     end
     it 'once sell by date passed, quality degrades twice as fast' do
-      items = [Item.new("foo", 0,6)]
+      items = [Item.new("foo",0,6)]
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 4
     end
