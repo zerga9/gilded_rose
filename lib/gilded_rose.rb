@@ -1,4 +1,6 @@
 require_relative "brie"
+require_relative "sulfuras"
+
 class GildedRose
 
   def initialize(items)
@@ -13,9 +15,9 @@ class GildedRose
     end
   end
 
- def sulfuras(item)
-   item.quality = item.quality
- end
+ # def sulfuras(item)
+ #   item.quality = item.quality
+ # end
 
  def backstage_passes(item)
    if item.sell_in <= 0
@@ -50,7 +52,7 @@ class GildedRose
       when "Aged Brie"
         Aged_brie.new(item)
       when "Sulfuras, Hand of Ragnaros"
-        sulfuras(item)
+        Sulfuras.new(item)
       when "Backstage passes to a TAFKAL80ETC concert"
         backstage_passes(item)
       when "Conjured Mana Cake"
